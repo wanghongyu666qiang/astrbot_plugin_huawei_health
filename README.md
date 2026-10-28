@@ -8,7 +8,7 @@
 
 > 插件读取的是华为云端已经上传的历史记录，不连接手环蓝牙，也不是实时监护或医疗诊断工具。
 >
-> 本版本在 [Stonogic086/astrbot_plugin_huawei_health](https://github.com/Stonogic086/astrbot_plugin_huawei_health) 上游代码上增加了 **LLM 主动工具**，并默认关闭“每轮自动注入健康摘要”。如果你是从上游版本升级，且仍想保留旧的每轮注入行为，请在隐私设置中手动打开“每轮自动注入健康摘要”。这个整包就是插件本体，不是补丁或独立插件；上游仓库没有这些工具，不要用插件市场的“检查更新”覆盖它。
+> 本版本在 [Stonogic086/astrbot_plugin_huawei_health](https://github.com/Stonogic086/astrbot_plugin_huawei_health) 上游代码上增加了 **LLM 主动工具**，并默认关闭“每轮自动注入健康摘要”。工具版仓库：<https://github.com/wanghongyu666qiang/astrbot_plugin_huawei_health>。这个整包就是插件本体，不是补丁或独立插件；上游仓库没有这些工具，如果你原来装的是上游原版，请用本仓库的整包覆盖，避免被上游更新覆盖掉工具层。
 
 ## 可以读取哪些数据
 
@@ -29,15 +29,16 @@
 
 插件支持 AstrBot 4.24.2 及以上的 4.x 版本，并要求 Python 3.11 或更高版本。本插件**不依赖任何第三方 Python 包**：协议层只用标准库。
 
-### 安装这个版本（整包，推荐）
+### 从本仓库安装（整包，推荐）
 
-这个版本不是上游发布版，整个目录就是插件本体：
+整个目录就是插件本体，推荐直接下载本仓库的 Release：
 
-1. 把整个 `astrbot_plugin_huawei_health` 目录放到 AstrBot 的 `data/plugins/` 下；
-2. 或者把目录打成 ZIP，在“插件 → 安装插件 → 从文件安装”中直接上传；
-3. 重启/重载插件。
+1. 打开 <https://github.com/wanghongyu666qiang/astrbot_plugin_huawei_health/releases>；
+2. 下载 `astrbot_plugin_huawei_health-v0.2.0-tools.zip`；
+3. 在 AstrBot 的“插件 → 安装插件 → 从文件安装”中上传；
+4. 重启/重载插件。
 
-安装后不要在插件页点“检查更新”，否则会从上游拉回没有工具层的版本。插件名、配置目录和数据库路径都沿用 `astrbot_plugin_huawei_health`，覆盖安装不会丢原有配置和数据。
+也可以把整个 `astrbot_plugin_huawei_health` 目录放到 AstrBot 的 `data/plugins/` 下。插件名、配置目录和数据库路径都沿用 `astrbot_plugin_huawei_health`，覆盖安装不会丢原有配置和数据。安装本版本后，插件页的“检查更新”会指向本仓库，不再指向上游。
 
 ### 从上游安装原版（不含本工具）
 
